@@ -28,5 +28,5 @@ jobs:
         pip install pylint
     - name: Run pylint
       run: |
-        ls
+        ls -a
         pylint .
