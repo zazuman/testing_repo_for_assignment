@@ -14,19 +14,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-      
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - uses: actions/checkout@v4
+    - name: Python Linter
+      uses: sunnysid3up/python-linter@master
       with:
-        python-version: 3.11
-
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pylint
-
-    - name: Run pylint
-      run: |
-        pylint main.py
+        source: "src"
+        mypy-options: "--ignore-missing-imports --show-error-codes"
+        pylint-options: "--rcfile=setup.cfg"
+        isort-options: "-w 100"
+        django: true
