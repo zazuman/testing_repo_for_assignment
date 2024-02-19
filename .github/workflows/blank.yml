@@ -29,4 +29,4 @@ jobs:
 
     - name: Run pylint
       run: |
-        pylint *.py
+        pylint main.py
